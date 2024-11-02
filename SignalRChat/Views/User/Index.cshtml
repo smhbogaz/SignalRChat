@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="row">
+    <div class="col-8" id="messageField" style="display:none;">
+        <div class="">
+            <ul id="messagesList" class="p-0 m-0 ms-3"></ul>
+            <div class="row ms-3 mt-3 justify-content-start" id="messageSend">
+                <div class="col-6 p-0 m-0"><input type="text" class="w-100" style="height:34px;" id="messageInput" /></div>
+                <div class="col-2 p-0 m-0">
+                    <button type="submit" class="btn btn-success rounded-0 w-100 py-0" style="height:34px;" id="sendButton">
+                        Gönder
+                    </button>
+                </div>
+            </div>
+            <div id="yaziyor" class="text-start ms-3 mt-1 fs-6"></div>
+        </div>        
+    </div>
+    <div id="loader" style="display: flex; align-items: center; justify-content: center; height:65vh;">
+        <span class="loader"></span>
+    </div>
+    <div class="col-4">
+        <section id="OnlineStatusBox" style="display:none;">
+        </section>
+    </div>
+</div>

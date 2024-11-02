@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_Layout";
+    var db = Globals.Instance.Db!;
+}
+<div id="liste" class="w-75 m-auto bg-dark text-white">
+    <ul>
+        @foreach (var item in db.Mesajlar.AsNoTracking().ToList())
+        {
+            <li class="my-3 py-2">
+                <div class="row">
+                    <div class="col-7"><b class="me-4">Mesaj:</b>@item.Mesaj</div>
+                    <div class="col-5"><b class="me-4">Atılma Tarihi:</b>@item.MesajTarihi?.ToString()</div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

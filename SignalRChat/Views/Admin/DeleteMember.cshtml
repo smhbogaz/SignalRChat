@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_Layout";
+    var db = Globals.Instance.Db!;
+}
+<table class="table bg-dark text-white">
+    <thead>
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ban</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in db.Members.AsNoTracking().ToList())
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.isBanned</td>
+                <td>
+                    <form action="@Url.Action("DeleteMemberForSingle","Admin")" method="post" id="@item.Id" class="delete-member-form">
+                        <input class="bg-dark text-white border-0" type="hidden" name="id" value="@item.Id" />
+                        <input class="btn btn-danger" type="submit" value="SİL" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

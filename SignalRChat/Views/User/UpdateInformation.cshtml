@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="m-auto p-5 text-center w-75 bg-dark text-white d-block align-items-center justify-content-center" id="bilgiler">
+    <div class="row">
+        <form id="updateForm" action="@Url.Action("UpdateInformationForUser", "User")" enctype="multipart/form-data">
+            
+            <div class="loader-two loader-white m-auto d-none"></div>
+            
+            <div class="row">
+                <div class="col-3">Tam Ad:</div>
+                <div class="col-9"><input class="form-control" type="text" name="fullName"/></div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-3">Eski Şifre:</div>
+                <div class="col-9"><input class="form-control" type="password" name="oldPassword"/></div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-3">Yeni Şifre:</div>
+                <div class="col-9"><input class="form-control" type="password" name="newPassword"/></div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-3">Resim:</div>
+                <div class="col-9">
+                    <input class="form-control form-control-sm" name="image" type="file" accept="image/*">
+                </div>
+            </div>
+            <hr/>
+            <p id="hint">Eski şifrenizi her daim doğru girmelisiniz boş bırakılan yerler güncellenmez olduğu gibi kalır.</p>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-success bg-primary w-100 my-4 mb-0" type="submit">Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

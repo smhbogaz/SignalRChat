@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_Layout";
+    var db = Globals.Instance.Db!;
+}
+<div class="w-75 m-auto bg-dark text-white" style="height:75vh;overflow-y:scroll; overflow-x:hidden">
+    <ul>
+        @foreach (var item in  db.Mesajlar.Where(x=>x.MesajAtanId==UserController.Id).AsNoTracking().ToList())
+        {
+            <li>
+                <div class="row">
+                    <div class="col-6"><b class="ms-5 me-4">Mesaj:</b>@item.Mesaj</div>
+                    <div class="col-6"><b class="me-4">Atılma Tarihi:</b>@item.MesajTarihi</div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

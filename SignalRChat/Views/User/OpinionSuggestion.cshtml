@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="m-auto p-5 text-center w-75 bg-dark text-white" id="bilgiler">
+    <div class="row">
+        <form id="opinion" action="@Url.Action("SendSuggestion", "User")" method="post">
+            <div class="loader-two loader-white m-auto d-none"></div>
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-9"><input class="form-control" type="text" id="gorus" name="opinion"/></div>
+            </div>
+            <hr/>
+            <p id="hint">Görüş,öneri ve iletilerinizi buradan gönderebilirsiniz. </p>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-success bg-primary w-100 my-4 mb-0" type="submit">Gönder</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

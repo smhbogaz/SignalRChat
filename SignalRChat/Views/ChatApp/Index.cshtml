@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<h6 class="mb-0 pb-3"><span>Giriş Yap </span><span id="kayitol">Kayıt Ol</span></h6>
+<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+<label for="reg-log"></label>
+<div class="card-3d-wrap mx-auto">
+    <div class="card-3d-wrapper">
+        <div class="card-front d-flex align-items-center justify-content-center">
+            <div class="loader d-none"></div>
+            <div class="center-wrap">
+                <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Giriş Yap</h4>
+                    <form action="@Url.Action("Login","ChatApp")" method="post" id="login">
+                        <div class="form-group">
+                            <input type="email" name="loginEmail" class="form-style" placeholder="Email" id="logemail" autocomplete="off">
+                            <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="password" name="loginPassword" class="form-style" placeholder="Şifre" id="logpass" autocomplete="off">
+                            <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <button type="submit" class="btn mt-4">Giriş Yap</button>
+                        <!--giriş yap-->
+                    </form>
+                    <p class="mb-0 mt-4 text-center"><a id="ForgetPassword" href="@Url.Action("Resetpassword","chatapp")" class="link">Sifremi Unuttum</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="card-back d-flex align-items-center justify-content-center">
+            <div class="loader d-none"></div>
+            <div class="center-wrap">
+                <div class="section text-center">
+                    <h4 class="mb-4 pb-3">Kayıt Ol</h4>
+                    <form action="@Url.Action("Register","ChatApp")" method="post" id="register">
+                        <div class="form-group">
+                            <input type="text" name="fullName" class="form-style" placeholder="Ad" id="logname" autocomplete="off">
+                            <i class="input-icon uil uil-user"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="email" name="email" class="form-style" placeholder="Email" id="logemail" autocomplete="off">
+                            <i class="input-icon uil uil-at"></i>
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="password" name="sifre" class="form-style" placeholder="Şifre" id="logpass" autocomplete="off">
+                            <i class="input-icon uil uil-lock-alt"></i>
+                        </div>
+                        <button type="submit" class="btn mt-4">Kayıt ol</button>
+                        <!--kayıt ol-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

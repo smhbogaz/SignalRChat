@@ -1,0 +1,22 @@
+﻿@media(max-width:576px) {
+    body{width:100vw;}
+    #adminIndex .col-8 {
+        width: 100%;
+    }
+    #messagesList li>div{
+        width:70%!important;
+    }
+    #messageSend{
+        width:100%!important;
+        margin-left:0.25rem!important;
+    }
+    #messageSend div:first-child{
+        width:70%!important;
+    }
+        #messageSend div:last-child {
+            width: 30% !important;
+        }
+    #adminIndex .col-4 {
+        width: 100% !important;
+    }
+}

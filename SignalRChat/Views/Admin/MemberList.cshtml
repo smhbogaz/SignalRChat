@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_Layout";
+    var db = Globals.Instance.Db!;
+}
+<table class="table bg-dark text-white">
+    <thead>
+        <tr>
+            <th scope="col">Ad</th>
+            <th scope="col">Email</th>
+            <th scope="col">Şifre</th>
+            <th scope="col">Ban</th>
+            <th scope="col">Resim</th>
+            <th scope="col">Yetki</th>
+            <th scope="col">Online</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in db.Members.AsNoTracking().ToList())
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td class="text-dark">@item.Password</td>
+                <td>@item.isBanned</td>
+                <td><img src="@Url.Content($"~/img/user/{item.Resim}")" alt="resim yok" /></td>
+                <td>@item.Yetki</td>
+                <td>@item.Online</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

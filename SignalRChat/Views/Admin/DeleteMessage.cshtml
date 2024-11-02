@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "_Layout";
+    var db = Globals.Instance.Db!;
+}
+<fieldset class="bg-dark text-white p-4 mb-3">
+    <legend>Seçili Kullanıcıya Göre Sil</legend>
+    <form action="@Url.Action("DeleteMessageForUser","Admin")" method="post" class="delete-message-for-user">
+        <select class="form-select" id="Kullanicilar" name="selectedUser">
+            <option value="0">Oley Bot</option>
+            @foreach (var item in db.Members.AsNoTracking().ToList())
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+        <button id="KullaniciBtn" type="submit" class="btn btn-danger my-2">Mesajlarını Sil</button>
+    </form>
+
+</fieldset>
+<div id="liste" class="w-75 m-auto bg-dark text-white">
+    <ul>
+        @foreach (var item in db.Mesajlar.AsNoTracking().ToList())
+        {
+            <li class="my-3 py-2">
+                <form action="@Url.Action("DeleteMessageForSingle","Admin")" method="post" id="@item.Id" class="delete-message-for-single"></form>
+                <div class="row">
+                    <input name="id" value="@item.Id" class="d-none" form="@item.Id">
+                    <div class="col-2"><b>Mesaj Atan Id:</b>@item.MesajAtanId</div>
+                    <div class="col-4"><b class="me-4">Mesaj:</b>@item.Mesaj</div>
+                    <div class="col-4"><b class="me-4">Atılma Tarihi:</b>@item.MesajTarihi</div>
+                    <div class="col-2"><input class="btn btn-danger" type="submit" form="@item.Id" value="SİL" /></div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

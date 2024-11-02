@@ -1,0 +1,48 @@
+﻿@import url('./loader.css');
+@import url('./plugins.css');
+@import url('./main.css');
+
+.work_section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #fff;
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+}
+
+    .work_section a {
+        color: #fff;
+    }
+
+        .work_section a:hover {
+            color: #DD5737;
+            transition-duration: 0.9s;
+        }
+
+.work_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 230px;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.f-column {
+    flex-direction: column !important;
+}
+
+.gap-3 {
+    gap: 3rem !important;
+}

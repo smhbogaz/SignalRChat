@@ -1,0 +1,110 @@
+﻿@{
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Semih Boğaz">
+    <meta name="description" content="Admin panel for managing chat applications">
+    <meta name="Linkedin profile" content="https://www.linkedin.com/in/semihb/">
+
+    <link href="@Url.Content("~/img/LOGOmor.png")" rel="icon" type="image/x-icon">
+    <link href="@Url.Content("~/views/admin/css/style.css")" rel="stylesheet">
+
+    <title>Admin</title>
+</head>
+
+<body>
+    <span id="yetki" style="display:none; opacity:0;">@AdminController.SessionAuth</span>
+    <div id="toast"></div>
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="@Url.Action("Index","Admin")" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Admin</span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="Index"?"active":"")"
+                           href=@(ViewBag.CurrentPageAction=="Index"?"javascript:void(0);":Url.Action("Index","Admin"))>
+                            <i class="fs-4 fa-solid fa-house"></i>
+                            <span class="ms-1 d-none d-sm-inline">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="MemberList"?"active":"")"
+                           href="@(ViewBag.CurrentPageAction == "MemberList" ? "javascript:void(0);" : Url.Action("MemberList", "Admin"))">
+                            <i class="fa-solid fa-users"></i>
+                            <span class="ms-1 d-none d-sm-inline">Üye Listesi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0"
+                           href=@(ViewBag.CurrentPageAction=="UpdateMember"?"javascript:void(0);":Url.Action("UpdateMember","Admin"))
+                           style=@(ViewBag.CurrentPageAction=="UpdateMember"?"color:white!important":"")>
+                            <i class="fas fa-user-edit"></i>
+                            <span class="ms-1 d-none d-sm-inline">Üye Güncelle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="DeleteMember"?"active":"")" 
+                           href=@(ViewBag.CurrentPageAction=="DeleteMember"?"javascript:void(0);":Url.Action("DeleteMember","Admin"))>
+                            <i class="fas fa-user-times"></i>
+                            <span class="ms-1 d-none d-sm-inline">Üye Sil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="DeleteImage"?"active":"")"
+                           href=@(ViewBag.CurrentPageAction=="deleteImage"?"javascript:void(0);":Url.Action("DeleteImage","Admin"))>
+                            <i class="fas fa-user-times"></i>
+                            <span class="ms-1 d-none d-sm-inline">Üye Resmi Sil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="Suggestions"?"active":"")"
+                           href=@(ViewBag.CurrentPageAction=="suggestions"?"javascript:void(0);":Url.Action("Suggestions","Admin"))>
+                            <i class="fs-4 fa-solid fa-thumbs-up"></i>
+                            <span class="ms-1 d-none d-sm-inline">Kullanıcı Önerileri</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="MessageList"?"active":"")"
+                           href=@(ViewBag.CurrentPageAction=="MessageList"?"javascript:void(0);":Url.Action("MessageList","Admin"))>
+                            <i class="fs-4 fas fa-comment"></i>
+                            <span class="ms-1 d-none d-sm-inline">Mesaj Listesi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="DeleteMessage"?"active":"")"
+                           href=@(ViewBag.CurrentPageAction=="DeleteMessage"?"javascript:void(0);":Url.Action("DeleteMessage","Admin"))>
+                            <i class="fs-4 fa fa-remove"></i>
+                            <span class="ms-1 d-none d-sm-inline">Mesaj Sil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction=="Logout"?"active":"")"
+                           href=@(ViewBag.CurrentPageAction=="Logout"?"javascript:void(0);":Url.Action("Logout","User"))>
+                            <i class="fs-4 fa-solid fa-power-off"></i>
+                            <span class="ms-1 d-none d-sm-inline">Çıkış Yap</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3 my-3">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+    <script src="@Url.Content("~/views/admin/js/script.js")" type="module"></script>
+    <script src="@Url.Content("~/js/sweetalert.js")"></script>
+</body>
+
+</html>

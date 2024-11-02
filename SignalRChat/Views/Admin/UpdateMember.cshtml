@@ -1,0 +1,106 @@
+﻿@using SignalRChat.Other.Enums
+@{
+    Layout = "_Layout";
+    var db = Globals.Instance.Db!;
+}
+<table class="table bg-dark text-white">
+    <thead>
+        <tr>
+
+            <th scope="col">Ad</th>
+            <th scope="col">Email</th>
+            <th scope="col">Şifre</th>
+            <th scope="col">Ban</th>
+            <th scope="col">Yetki</th>
+            <th scope="col">Online</th>
+            <th scope="col">Guncelle</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+    @foreach (var item in db.Members.AsNoTracking().ToList())
+    {
+        <tr>
+
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td class="text-dark">@item.Password</td>
+            <td>@item.isBanned</td>
+            <td>@item.Yetki</td>
+            <td>@item.Online</td>
+        </tr>
+
+        <tr>
+            <form action="@Url.Action("UpdateMember","Admin")" method="post" id="@item.Id" class="update-member-form"></form>
+            <input form="@item.Id" type="hidden" value="@item.Id" class="form-control" name="Id" />
+            <td><input form="@item.Id" type="text" value="@item.Name" class="form-control" name="Name" /></td>
+            <td><input form="@item.Id" type="email" value="@item.Email" class="form-control" name="Email" /></td>
+            <td><input form="@item.Id" type="text" value="" class="form-control" name="Password" /></td>
+            <td>
+                <select form="@item.Id" class="form-select" name="isBanned">
+                    @if (item.isBanned)
+                    {
+                        <option value="false">False</option>
+                        <option value="true" selected>True</option>
+                    }
+                    else
+                    {
+                        <option value="false" selected>False</option>
+                        <option value="true">True</option>
+                    }
+
+                </select>
+            </td>
+            <td>
+                <select form="@item.Id" class="form-select" name="auth">
+                    @if (item.Yetki == nameof(Auth.Admin))
+                    {
+                        <option value="admin" selected>Admin</option>
+                        <option value="yetkili">Yetkili</option>
+                        <option value="personel">Personel</option>
+                    }
+                    else if (item.Yetki == nameof(Auth.Yetkili))
+                    {
+                        <option value="admin">Admin</option>
+                        <option value="yetkili" selected>Yetkili</option>
+                        <option value="personel">Personel</option>
+                    }
+                    else
+                    {
+                        <option value="admin">Admin</option>
+                        <option value="yetkili">Yetkili</option>
+                        <option value="personel" selected>Personel</option>
+                    }
+
+                </select>
+            </td>
+            <td>
+                <select form="@item.Id" class="form-select" name="online">
+                    @if (item.Online.HasValue)
+                    {
+                        @if (item.Online.Value)
+                        {
+                            <option value="true" selected>Online</option>
+                            <option value="false">Offline</option>
+                        }
+                        else
+                        {
+                            <option value="true">Online</option>
+                            <option value="false" selected>Offline</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="true">Online</option>
+                        <option value="false" selected>Offline</option>
+                    }
+                </select>
+            </td>
+            <td><input form="@item.Id" type="submit" class="btn btn-primary" value="Guncelle" /></td>
+        </tr>
+    }
+    </tbody>
+    <script>
+        
+    </script>
+</table>

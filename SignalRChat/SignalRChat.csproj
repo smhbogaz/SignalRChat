@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>fba23e4c-6043-41b6-b4db-b43e862eb7c6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\sweetalert.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\custom.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\gallery-init.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\1080x1440-bg-about.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\1080x1440-bg-contact.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\1080x1440-bg-works.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\1080x1440-kenburns-1.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\1080x1440-kenburns-2.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\1080x1440-kenburns-3.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\backgrounds\bg-about-quote.webp" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\company\jbm.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\company\netas.png" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\favicon\icon.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\icons\icon-quote.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\img\logo.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\libs.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\loader.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\main.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\plugins.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\script.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\home\style.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\admin\AdminChat.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\admin\script.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\views\admin\style.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\WA\version.txt" />
+    <_ContentIncludedByDefault Remove="wwwroot\WA\WA.zip" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Management" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\file\" />
+    <Folder Include="wwwroot\fonts\Fontawesome\" />
+    <Folder Include="wwwroot\img\user\" />
+  </ItemGroup>
+
+
+
+</Project>

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"              content="width=device-width, initial-scale=1.0">
+    <meta name="author"                content="Semih Boğaz">
+    <meta name="description"           content="Kullanıcıların sohbet uygulamasına giriş yapmasına, yeni kullanıcı kaydı oluşturmasına ve şifrelerini sıfırlamalarına olanak tanıyan basit ve kullanıcı dostu bir panel.">
+    <meta name="Linkedin profile"      content="https://www.linkedin.com/in/semihb/">
+    <link rel="icon"       href="@Url.Content("~/img/LOGOmor.png")" type="image/x-icon">
+    <link rel="stylesheet" href="@Url.Content("~/views/chatapp/css/style.css")">
+    <title>Chat App</title>
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="@Url.Content("~/js/sweetalert.js")"></script>
+    <script src="@Url.Content("~/views/chatapp/js/script.js")" type="module"></script>
+</body>
+</html>

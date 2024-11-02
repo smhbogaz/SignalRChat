@@ -1,0 +1,106 @@
+﻿@{
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Semih Boğaz">
+    <meta name="description" content="Admin panel for managing chat applications">
+    <meta name="Linkedin profile" content="https://www.linkedin.com/in/semihb/">
+    <link rel="icon"       href="@Url.Content("~/img/LOGOmor.png")" type="image/x-icon">
+
+    <title>@UserController.Ad</title>
+
+    <link href="@Url.Content("~/views/user/css/style.css")" rel="stylesheet">
+</head>
+
+<body>
+
+<span id="yetki">@UserController.SessionYetki</span>
+<div id="toast"></div>
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a class="m-0 pb-3 text-white text-decoration-none w-100 text-center"
+                   href=@(ViewBag.CurrentPageAction == "Index" ? "javascript:void(0);" : Url.Action("Index", "User"))>
+                    <div class="fs-5 d-none d-sm-inline">
+                        <img width="100" height="100" src="@Url.Content($"~/img/user/{UserController.Resim}")" alt=""/>
+                    </div><br/>
+                    <div class="fs-5 d-none d-sm-inline">@UserController.Ad</div>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li>
+                        <a class="nav-link align-middle px-0 @(currentAction == "Index" ? "active" : "")"
+                           href=@(ViewBag.CurrentPageAction == "Index" ? "javascript:void(0);" : Url.Action("Index", "User"))>
+                            <i class="fs-4 bi-house"></i>
+                            <span class="ms-1 d-none d-sm-inline">Chat</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle" id="seko">
+                            <i class="bi bi-person fs-4"></i>
+                            <span class="ms-1 d-none d-sm-inline">Hesabım</span>
+                        </a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#seko">
+                            <li class="w-100">
+                                <a class="nav-link px-0 @(currentAction == "AccountInfo" ? "active" : "")"
+                                   href=@(ViewBag.CurrentPageAction == "AccountInfo" ? "javascript:void(0);" : Url.Action("AccountInfo", "User"))>
+                                    <span class="d-sm-inline">Hesap Bilgileri</span>
+                                </a>
+                            </li>
+                            <li class="w-100">
+                                <a class="nav-link px-0 @(currentAction == "UpdateInformation" ? "active" : "")"
+                                   href=@(ViewBag.CurrentPageAction == "UpdateInformation" ? "javascript:void(0);" : Url.Action("UpdateInformation", "User"))>
+                                    <span class="d-sm-inline">Bilgileri Güncelle</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle" id="menu">
+                            <i class="fs-4 bi-grid"></i>
+                            <span class="ms-1 d-none d-sm-inline">Araçlar</span>
+                        </a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a class="nav-link px-0 @(currentAction == "OldMessages" ? "active" : "")"
+                                   href=@(ViewBag.CurrentPageAction == "OldMessages" ? "javascript:void(0);" : Url.Action("OldMessages", "User"))>
+                                    <span class="d-sm-inline">Eski Mesajları Listele</span>
+                                </a>
+                            </li>
+                            <li class="w-100">
+                                <a class="nav-link px-0 @(currentAction == "OpinionSuggestion" ? "active" : "")"
+                                   href=@(ViewBag.CurrentPageAction == "OpinionSuggestion" ? "javascript:void(0);" : Url.Action("OpinionSuggestion", "User"))>
+                                    <span class="d-sm-inline">Görüş ve Önerileriniz İçin</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link px-0 align-middle"
+                           href="@Url.Action("Logout", "User")">
+                            <i class="fs-4 bi bi-power"></i>
+                            <span class="ms-1 d-none d-sm-inline">Çıkış Yap</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3 my-3">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/views/user/js/script.js")" type="module"></script>
+<script src="@Url.Content("~/js/sweetalert.js")"></script>
+</body>
+
+</html>
